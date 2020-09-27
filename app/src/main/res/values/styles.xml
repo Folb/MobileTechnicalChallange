@@ -6,5 +6,25 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    
+    <style name="Font">
+        <item name="android:textColor">@color/black</item>
+    </style>
 
+    <style name="Font.Normal">
+        <item name="font">@font/ubuntu_mono_regular</item>
+    </style>
+
+    <style name="Font.Normal.Small">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Font.Normal.Medium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Font.Normal.Large">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>
