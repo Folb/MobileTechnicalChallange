@@ -18,11 +18,24 @@ class AdCollectionViewModel : ObservableViewModel() {
     private val _ads: MutableLiveData<Ads> = MutableLiveData()
     val ads: LiveData<Ads> get() = _ads
 
+    var showOnlyFavorites = false
+
+    private val _toggleButtonText: MutableLiveData<String>
+        get() {
+            return if (showOnlyFavorites) {
+                MutableLiveData("Vis alle")
+            } else {
+                MutableLiveData("Vis kun favoritter")
+            }
+        }
+    val toggleButtonText: LiveData<String> get() = _toggleButtonText
+
     init {
         repository.getAdData(object : ResponseCallback<Ads> {
             override fun onSuccess(response: Ads) {
                 Log.e("ViewModel", "Ads successfully fetched")
-                setAds(response)
+                _ads.value = response
+                notifyChange()
 
                 val imageUrls = _ads.value?.getImageUrls()
                 imageUrls?.let {
@@ -45,8 +58,13 @@ class AdCollectionViewModel : ObservableViewModel() {
         })
     }
 
-    fun setAds(ads: Ads) {
-        _ads.value = ads
+    fun toggleVisibility() {
+        showOnlyFavorites = !showOnlyFavorites
+        notifyChange()
+    }
+
+    fun cheat() {
         notifyChange()
     }
 }
+

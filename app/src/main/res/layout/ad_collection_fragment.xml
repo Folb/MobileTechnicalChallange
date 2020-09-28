@@ -9,10 +9,25 @@
             type="com.folbstudio.mobiletechnicalchallange.layout.adview.AdCollectionViewModel" />
     </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/adsRecyclerView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/ad_item" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/adsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/ad_item"
+            android:layout_above="@id/toggleFavVisibility"/>
+
+        <Button
+            android:id="@+id/toggleFavVisibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{vm.toggleButtonText}"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+
 </layout>
 

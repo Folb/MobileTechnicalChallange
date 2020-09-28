@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/adCollectionFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/adCollectionFragment"
         android:name="com.folbstudio.mobiletechnicalchallange.layout.adview.AdCollectionFragment"
         android:label="AdCollectionFragment"
         tools:layout="@layout/ad_collection_fragment"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.folbstudio.mobiletechnicalchallange.layout.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/splash_fragment">
+        <action
+            android:id="@+id/action_splashFragment_to_adCollectionFragment"
+            app:destination="@id/adCollectionFragment" />
+    </fragment>
 </navigation>

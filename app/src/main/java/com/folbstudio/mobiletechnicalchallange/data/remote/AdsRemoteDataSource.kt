@@ -1,4 +1,4 @@
-package com.folbstudio.mobiletechnicalchallange.data
+package com.folbstudio.mobiletechnicalchallange.data.remote
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -12,9 +12,8 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.File
 
-object RemoteDataSource {
+object AdsRemoteDataSource {
 
     private val adImageClient = RetrofitFactory.getClient(imageBaseUrl).create(Endpoints::class.java)
     private val adDataClient = RetrofitFactory.getClientWithGsonConverter(adDataUrl).create(Endpoints::class.java)
